@@ -80,6 +80,7 @@ function Car(model, mpg) {
 Car.prototype.fill = function (gallons) {
   this.tank = this.tank + gallons;
 }
+//Car.prototype.dirve = function (distance)
 
 /*
   TASK 3
@@ -88,16 +89,23 @@ Car.prototype.fill = function (gallons) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype)
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`
+};
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Is the function being called by new?
+  2. Is the function being called by call(), apply(), or bind()?
+  3. is the function being called as obj.func() or in other words is it being called as a method?
+  4. Is it being calle in the global scope. If strict mode then return 'undefined'. otherwise return global object 'window'
 */
 
 
